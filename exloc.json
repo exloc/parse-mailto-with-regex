@@ -1,0 +1,11 @@
+{
+  "name": "Parse mailto with RegEx",
+  "description": "Parse a 'mailto' field with a Regular Expression.",
+  "scripts": {
+    "start": "node example.js"
+  },
+  "dependencies": {
+    "node": "6.10.2"
+  },
+  "license": "MIT"
+}

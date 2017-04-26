@@ -1,13 +1,12 @@
-mailtos = [
-  "Bill Gates <billg@microsoft.com>",
-  "Tom Anderson<tom@myspace.com>",
-  "<radavis@gmail.com>",
-  "bob.dole@gmail.com",  # matching this email would be awesome
-  "test post, please ignore"  # and ignoring this would be rad
-]
+require "json"
+
+json_text = File.read("mailtos.json")
+mailtos = JSON.parse(json_text)
+
+REGEX = /(.*[^\s*<])?\s*<(.*)>/
 
 mailtos.each do |mailto|
-  match_data = /(.*[^\s*<])?\s*<(.*)>/.match(mailto)
+  match_data = REGEX.match(mailto)
   _, name, email, *_ = *match_data
-  puts "Name: #{name}  Email: #{email}\n\n"
+  puts "Name: #{name}  Email: #{email}"
 end
